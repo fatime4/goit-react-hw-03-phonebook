@@ -40,6 +40,20 @@ export class App extends Component {
     this.setState({ filter: event.currentTarget.value });
   };
 
+  componentDidMount() {
+    const contacts = JSON.parse(localStorage.getItem('contacts'));
+    if (contacts && contacts.length) {
+      this.setState({ contacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { contacts } = this.state;
+    if (prevState.contacts.length !== contacts.length) {
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+    }
+  }
+
   render() {
     const normalizedFilter = this.state.filter.toLowerCase();
     const visibleNames = this.state.contacts.filter(contact =>
