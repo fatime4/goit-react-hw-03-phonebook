@@ -1,0 +1,23 @@
+.filterBlock {
+
+  /* padding: 0 30px; */
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  padding: 0 20px;
+  font-weight: bold;
+}
+
+
+.input {
+  margin-top: 10px;
+}
+
+.input:hover,
+.input:focus {
+  outline-color: green;
+
+}
